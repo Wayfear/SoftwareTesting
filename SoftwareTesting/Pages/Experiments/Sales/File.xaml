@@ -15,8 +15,8 @@
 
         <ScrollViewer Margin="{StaticResource SplitLeft}">
             <StackPanel>
-                <TextBlock Text="LEFT CONTENT" Style="{StaticResource Heading2}" />
-                <TextBlock Text="Content goes here" />
+                <TextBlock Text="Select File" Style="{StaticResource Heading2}" />
+                <TextBlock Text="Select the file that contain test data." />
                 <TextBox Margin="10" x:Name="textBox" Height="25" TextWrapping="Wrap" Text="File Path"/>
                 <Button Margin="10" Width="100" Height="30" Content="Select File" Click="ButtonBase_OnClick"/>
                 <Button Width="100" Height="30" Content="Commit" Click="File_Parse"/>
@@ -25,7 +25,7 @@
         <GridSplitter Grid.Column="1" />
         <ScrollViewer Grid.Column="2 " Margin="{StaticResource SplitRight}">
             <StackPanel>
-                <TextBlock Text="RIGHT CONTENT" Style="{StaticResource Heading2}" />
+                <TextBlock Text="Import File" Style="{StaticResource Heading2}" />
 
                 <TextBlock Text="Content goes here" />
                 <Button Margin="0,55,0,0" Width="100" Height="30" Content="Export File" Click="File_Parse" RenderTransformOrigin="0.5,-0.222"/>
