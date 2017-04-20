@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SoftwareTesting.Pages.Experiments.Sales
+namespace SoftwareTesting.Pages.Experiments.Data
 {
     /// <summary>
-    /// Interaction logic for BasicPage2.xaml
+    /// Interaction logic for PieChart.xaml
     /// </summary>
-    public partial class BasicPage2 : UserControl
+    public partial class PieChart : UserControl
     {
-        public BasicPage2()
+
+        public PieChart()
         {
             InitializeComponent();
-            dataGrid.DataSource = FilePage.DataSource;
+            pieChart.ItemsSource = new Sales.PieData(SplitPage1.DataSource);
         }
     }
+
 }

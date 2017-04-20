@@ -26,4 +26,37 @@ namespace SoftwareTesting
             InitializeComponent();
         }
     }
+
+    public abstract class BaseModel
+    {
+        private int index;
+
+        public bool inputCorrect;
+
+        public abstract string Output();
+
+        public abstract bool ResultDecide();
+       
+        public int Index
+        {
+            set
+            {
+                index = value;
+            }
+            get
+            {
+                return index;
+            }
+        }
+
+     
+        public string InputCorrect
+        {
+            get
+            {
+                return inputCorrect ? "True" : "False";
+            }
+        }
+
+    }
 }

@@ -82,6 +82,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Experiments\Data\Data.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Experiments\Data\PieChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Experiments\Data\SplitPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Experiments\Date.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +122,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Pages\Experiments\Data\Data.xaml.cs">
+      <DependentUpon>Data.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Experiments\Data\PieChart.xaml.cs">
+      <DependentUpon>PieChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Experiments\Data\SplitPage1.xaml.cs">
+      <DependentUpon>SplitPage1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Experiments\Date.xaml.cs">
       <DependentUpon>Date.xaml</DependentUpon>
     </Compile>

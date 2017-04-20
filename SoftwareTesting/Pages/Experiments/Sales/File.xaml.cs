@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,18 +19,20 @@ using System.IO;
 namespace SoftwareTesting.Pages.Experiments.Sales
 {
     /// <summary>
-    /// Interaction logic for SplitPage1.xaml
+    /// Interaction logic for FilePage.xaml
     /// </summary>
-    public partial class SplitPage1 : UserControl
+    public partial class FilePage : UserControl
     {
-        public SplitPage1()
+        public static ObservableCollection<BaseModel> DataSource = new ObservableCollection<BaseModel>();
+
+        private string path;
+
+        public FilePage()
         {
             InitializeComponent();
-            listStrArr = new List<List<int>>();
         }
 
-        List<List<int>> listStrArr;
-
+       
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -40,33 +43,55 @@ namespace SoftwareTesting.Pages.Experiments.Sales
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 textBox.Text = openFileDialog1.FileName;
+                path = textBox.Text;
             }
+            File_Parse();
         }
 
-        private void File_Parse(object sender, RoutedEventArgs e)
+        private void File_Parse()
         {
-            String openfilePath = textBox.Text;
+            string openfilePath = textBox.Text;
             StreamReader reader = new StreamReader(@openfilePath);
             string line = "";
             line = reader.ReadLine();//读取一行数据
             line = reader.ReadLine();
-            string[] temps;
             while (line != null)
             {
-                List<int> tempt = new List<int>();
-                temps = line.Split(',');//将文件内容分割成数组
-                for (int i = 0; i < temps.Length; i++)
-                {
-                    tempt[i] = int.Parse((temps[i]));
-                }
-                listStrArr.Add(tempt);
+                string[] temps = line.Split(',');//将文件内容分割成数组
+                var tempData = new DataModel(int.Parse(temps[0]), int.Parse(temps[1]),
+                    int.Parse(temps[2]), int.Parse(temps[3]),
+                    float.Parse(temps[4]), float.Parse(temps[5]));
+                DataSource.Add(tempData);
                 line = reader.ReadLine();
             }
         }
 
-        public class DataModel
+        private void Export_report(object sender, RoutedEventArgs e)
         {
-            private int index;
+            string filePath = path.Split('.')[0] + "_report.csv";
+            StreamWriter sw = new StreamWriter(filePath);
+            sw.WriteLine(outputHeader());
+            foreach (var v in DataSource)
+            {
+                sw.WriteLine(v.Output());
+            }
+            sw.Close();
+        }
+
+
+        string outputHeader()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Index").Append(",").Append("PeripheralNumber").Append(", ").
+                Append("HostNumber").Append(", ").Append("DisplayNumber").Append(", ").
+                Append("ExpectPrice").Append(", ").Append("ExpectProfit").Append(", ").
+                Append("OutputPrice").Append(", ").Append("OutputProfit").Append(", ").
+                Append("PriceCorrect").Append(", ").Append("ProfitCorrect");
+            return sb.ToString();
+        }
+
+        public class DataModel: BaseModel
+        {
 
             private int peripheralNumber;
 
@@ -74,13 +99,13 @@ namespace SoftwareTesting.Pages.Experiments.Sales
 
             private int displayNumber;
 
-            private int expectPrice;
+            private float expectPrice;
 
-            private int expectProfit;
+            private float expectProfit;
 
-            private int outputPrice;
+            private float outputPrice;
 
-            private int outputProfit;
+            private float outputProfit;
 
             private bool priceCorrect;
 
@@ -88,7 +113,7 @@ namespace SoftwareTesting.Pages.Experiments.Sales
 
             public DataModel(int index, int peripheralNumber, 
                 int hostNumber, int displayNumber, 
-                int expectPrice, int expectProfit)
+                float expectPrice, float expectProfit)
             {
                 Index = index;
                 PeripheralNumber = peripheralNumber;
@@ -97,20 +122,56 @@ namespace SoftwareTesting.Pages.Experiments.Sales
                 ExpectPrice = expectPrice;
                 ExpectProfit = expectProfit;
 
+                if(peripheralNumber > 90 || hostNumber > 70 || displayNumber > 80 ||
+                    peripheralNumber < 1 || hostNumber < 1 || displayNumber < 1)
+                {
+                    inputCorrect = false;
+                    return;
+                }
+                else
+                {
+                    inputCorrect = true;
+                }
 
+                outputPrice = (float)peripheralNumber * 25.0f + (float)hostNumber * 45f + (float)displayNumber * 30f;
+
+                priceCorrect = (System.Math.Abs(outputPrice - this.expectPrice)<0.01);
+
+                if (outputPrice < 1000)
+                {
+                    outputProfit = (outputPrice * 0.05f);
+                }
+                else if (outputPrice >= 1800)
+                {
+                    outputProfit = (outputPrice * 0.15f);
+                }
+                else
+                {
+                    outputProfit = (outputPrice * 0.1f);
+                }
+
+                profitCorrect = System.Math.Abs(outputProfit - this.expectProfit) < 0.01;
+       
             }
 
-
-            public int Index
+            public override bool ResultDecide()
             {
-                set
-                {
-                    index = value;
-                }
-                get
-                {
-                    return index;
-                }
+                return priceCorrect && profitCorrect;
+            }
+
+            public override string Output()
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Index).Append(",").Append(PeripheralNumber).Append(",").
+                    Append(HostNumber).Append(",").Append(DisplayNumber).Append(",").
+                    Append(ExpectPrice.ToString("f2")).Append(",").Append(ExpectProfit.ToString("f2")).Append(",");
+                if(inputCorrect)
+                    sb.Append(OutputPrice.ToString("f2")).Append(",").Append(OutputProfit.ToString("f2")).Append(",").
+                    Append(PriceCorrect).Append(",").Append(ProfitCorrect);
+                else
+                    sb.Append("NULL").Append(", ").Append("NULL").Append(", ").
+                    Append("NULL").Append(", ").Append("NULL");
+                return sb.ToString();
             }
 
             public int PeripheralNumber
@@ -149,7 +210,7 @@ namespace SoftwareTesting.Pages.Experiments.Sales
                 }
             }
 
-            public int ExpectPrice
+            public float ExpectPrice
             {
                 set
                 {
@@ -161,7 +222,7 @@ namespace SoftwareTesting.Pages.Experiments.Sales
                 }
             }
 
-            public int ExpectProfit
+            public float ExpectProfit
             {
                 set
                 {
@@ -173,7 +234,7 @@ namespace SoftwareTesting.Pages.Experiments.Sales
                 }
             }
 
-            public int OutputPrice
+            public float OutputPrice
             {
                 get
                 {
@@ -181,7 +242,7 @@ namespace SoftwareTesting.Pages.Experiments.Sales
                 }
             }
 
-            public int OutputProfit
+            public float OutputProfit
             {
                 get
                 {
@@ -192,14 +253,7 @@ namespace SoftwareTesting.Pages.Experiments.Sales
             {
                 get
                 {
-                    if (priceCorrect)
-                    {
-                        return "True";
-                    }
-                    else
-                    {
-                        return "False";
-                    }
+                    return priceCorrect ? "True" : "False";
                 }
             }
 
@@ -207,18 +261,13 @@ namespace SoftwareTesting.Pages.Experiments.Sales
             {
                 get
                 {
-                    if (profitCorrect)
-                    {
-                        return "True";
-                    }
-                    else
-                    {
-                        return "False";
-                    }
+                    return profitCorrect ? "True" : "False";
                 }
             }
 
 
         }
+
+ 
     }
 }

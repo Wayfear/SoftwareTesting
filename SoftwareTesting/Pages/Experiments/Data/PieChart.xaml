@@ -1,19 +1,19 @@
-﻿<UserControl
+﻿<UserControl x:Class="SoftwareTesting.Pages.Experiments.Data.PieChart"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-             xmlns:ig="http://schemas.infragistics.com/xaml" x:Class="SoftwareTesting.Pages.Experiments.Sales.BasicPage1"
+             xmlns:ig="http://schemas.infragistics.com/xaml"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
-        <TextBlock Text="Pie Chart" Style="{StaticResource Heading2}" />
-       <DockPanel LastChildFill="True">
+      
+            <TextBlock Text="Pie Chart" Style="{StaticResource Heading2}" />
+            <DockPanel LastChildFill="True">
 
 
-            <ig:ItemLegend
+                <ig:ItemLegend
                 x:Name="Legend"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
@@ -24,7 +24,7 @@
 
 
 
-            <ig:XamPieChart Name="pieChart" 
+                <ig:XamPieChart Name="pieChart" 
                 Margin="5,20,20,2"
                 MinWidth="300"
                 RadiusFactor="{Binding ElementName=radiusFactorSlider, Path=Value}"
@@ -39,13 +39,13 @@
                 Legend="{Binding ElementName=Legend}"
                    
             />
-            <!-- #END SNIPPET# -->
- 
+                <!-- #END SNIPPET# -->
 
-      
-            
-        </DockPanel>
-       
 
-    </Grid>
+
+
+            </DockPanel>
+
+
+        </Grid>
 </UserControl>

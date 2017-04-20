@@ -13,17 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SoftwareTesting.Pages.Experiments.Sales
+namespace SoftwareTesting.Pages.Experiments.Data
 {
     /// <summary>
-    /// Interaction logic for BasicPage2.xaml
+    /// Interaction logic for Data.xaml
     /// </summary>
-    public partial class BasicPage2 : UserControl
+    public partial class Data : UserControl
     {
-        public BasicPage2()
+        public Data()
         {
             InitializeComponent();
-            dataGrid.DataSource = FilePage.DataSource;
+            dataGrid.DataSource = SplitPage1.DataSource;
         }
     }
 }

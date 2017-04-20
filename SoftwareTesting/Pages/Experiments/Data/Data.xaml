@@ -1,10 +1,10 @@
-﻿<UserControl
+﻿<UserControl x:Class="SoftwareTesting.Pages.Experiments.Data.Data"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-             xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:Custom="http://infragistics.com/DataPresenter" x:Class="SoftwareTesting.Pages.Experiments.Sales.BasicPage2"
+             xmlns:dataPresenter="http://infragistics.com/DataPresenter"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
@@ -14,7 +14,7 @@
 
 
 
-                <Custom:XamDataGrid Name="dataGrid" Theme="Metro"/>
+                <dataPresenter:XamDataGrid Name="dataGrid" Theme="Metro"/>
 
 
 

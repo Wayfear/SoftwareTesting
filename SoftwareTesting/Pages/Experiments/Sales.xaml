@@ -11,7 +11,7 @@
         <mui:ModernTab Layout="Tab" SelectedSource="/Pages/Experiments/Sales/File.xaml">
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="Import" Source="/Pages/Experiments/Sales/File.xaml"/>
+                <mui:Link DisplayName="Import and Export" Source="/Pages/Experiments/Sales/File.xaml"/>
                 <mui:Link DisplayName="Pie Charm" Source="/Pages/Experiments/Sales/PieChart.xaml"/>
                 <mui:Link DisplayName="Data" Source="/Pages/Experiments/Sales/Data.xaml"/>
             </mui:ModernTab.Links>
