@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SoftwareTesting.Pages.Experiments.Sales
 {
     /// <summary>
-    /// Interaction logic for BasicPage3.xaml
+    /// Interaction logic for SplitPage1.xaml
     /// </summary>
-    public partial class BasicPage3 : UserControl
+    public partial class SplitPage1 : UserControl
     {
-        public BasicPage3()
+        public SplitPage1()
         {
             InitializeComponent();
         }
@@ -34,7 +34,7 @@ namespace SoftwareTesting.Pages.Experiments.Sales
             openFileDialog1.RestoreDirectory = true;
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                textBox.Text=openFileDialog1.FileName;
+                textBox.Text = openFileDialog1.FileName;
             }
         }
 

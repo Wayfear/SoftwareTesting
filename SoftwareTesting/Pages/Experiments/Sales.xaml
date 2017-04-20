@@ -8,10 +8,10 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <!-- TODO: set @SelectedSource -->
-        <mui:ModernTab Layout="Tab" SelectedSource="/Pages/Experiments/Sales/SelectFile.xaml">
+        <mui:ModernTab Layout="Tab" SelectedSource="/Pages/Experiments/Sales/File.xaml">
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="Import" Source="/Pages/Experiments/Sales/SelectFile.xaml"/>
+                <mui:Link DisplayName="Import" Source="/Pages/Experiments/Sales/File.xaml"/>
                 <mui:Link DisplayName="Pie Charm" Source="/Pages/Experiments/Sales/PieChart.xaml"/>
                 <mui:Link DisplayName="Data" Source="/Pages/Experiments/Sales/Data.xaml"/>
             </mui:ModernTab.Links>

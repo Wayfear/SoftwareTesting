@@ -90,15 +90,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Experiments\Sales\SelectFile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Experiments\Sales\Data.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Experiments\Sales\PieChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Experiments\Sales\File.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,14 +116,14 @@
     <Compile Include="Pages\Experiments\Sales.xaml.cs">
       <DependentUpon>Sales.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Experiments\Sales\SelectFile.xaml.cs">
-      <DependentUpon>SelectFile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Experiments\Sales\Data.xaml.cs">
       <DependentUpon>Data.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Experiments\Sales\PieChart.xaml.cs">
       <DependentUpon>PieChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Experiments\Sales\File.xaml.cs">
+      <DependentUpon>File.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
