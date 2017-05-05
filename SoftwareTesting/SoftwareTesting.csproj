@@ -98,6 +98,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Experiments\PhoneFare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Experiments\Phone\Data.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Experiments\Phone\File.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Experiments\Phone\PieChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Experiments\Sales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +149,18 @@
     </Compile>
     <Compile Include="Pages\Experiments\Date.xaml.cs">
       <DependentUpon>Date.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Experiments\PhoneFare.xaml.cs">
+      <DependentUpon>PhoneFare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Experiments\Phone\Data.xaml.cs">
+      <DependentUpon>Data.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Experiments\Phone\File.xaml.cs">
+      <DependentUpon>File.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Experiments\Phone\PieChart.xaml.cs">
+      <DependentUpon>PieChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Experiments\Sales.xaml.cs">
       <DependentUpon>Sales.xaml</DependentUpon>

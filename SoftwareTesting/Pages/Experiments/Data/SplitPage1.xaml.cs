@@ -34,21 +34,20 @@ namespace SoftwareTesting.Pages.Experiments.Data
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
             openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                textBox.Text = openFileDialog1.FileName;
-                path = textBox.Text;
+                path = openFileDialog1.FileName;
             }
             File_Parse();
         }
 
         private void File_Parse()
         {
-            string openfilePath = textBox.Text;
+            string openfilePath = path;
             StreamReader reader = new StreamReader(@openfilePath);
             string line = "";
             line = reader.ReadLine();//读取一行数据
@@ -60,6 +59,7 @@ namespace SoftwareTesting.Pages.Experiments.Data
                 DataSource.Add(tempData);
                 line = reader.ReadLine();
             }
+            MessageBox.Show("Finish Import!");
         }
 
         private void Export_report(object sender, RoutedEventArgs e)
@@ -72,6 +72,7 @@ namespace SoftwareTesting.Pages.Experiments.Data
                 sw.WriteLine(v.Output());
             }
             sw.Close();
+            MessageBox.Show("Finish Export!");
         }
 
 
@@ -100,7 +101,7 @@ namespace SoftwareTesting.Pages.Experiments.Data
 
             public Test2DataModel(int index, string inDate, string exDate)
             {
-                Index = index;
+                AtIndex = index;
 
                 string[] temp = inDate.Split('/');
 
@@ -131,7 +132,7 @@ namespace SoftwareTesting.Pages.Experiments.Data
             public override string Output()
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append(Index).Append(",").Append(InputDate.ToString("yyyy/MM/dd")).Append(",").
+                sb.Append(AtIndex).Append(",").Append(InputDate.ToString("yyyy/MM/dd")).Append(",").
                     Append(ExpectDate.ToString("yyyy/MM/dd")).Append(",");
                 if (inputCorrect)
                     sb.Append(OutputDate.ToString("yyyy/MM/dd")).Append(",")

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SoftwareTesting.Pages.ListPage1"
+﻿<UserControl x:Class="SoftwareTesting.Pages.Experiments.PhoneFare"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,12 +8,12 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <!-- TODO: set @SelectedSource -->
-        <mui:ModernTab Layout="List" SelectedSource="/Pages/Experiments/Sales.xaml">
+        <mui:ModernTab Layout="Tab"  SelectedSource="/Pages/Experiments/Phone/File.xaml">
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="Sales Test" Source="/Pages/Experiments/Sales.xaml"/>
-                <mui:Link DisplayName="Date Test" Source="/Pages/Experiments/Date.xaml"/>
-                <mui:Link DisplayName="TelephoneFare Test" Source="/Pages/Experiments/PhoneFare.xaml"/>
+                <mui:Link DisplayName="Import and Export" Source="/Pages/Experiments/Phone/File.xaml"/>
+                <mui:Link DisplayName="Pie Charm" Source="/Pages/Experiments/Phone/PieChart.xaml"/>
+                <mui:Link DisplayName="Data" Source="/Pages/Experiments/Phone/Data.xaml"/>
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

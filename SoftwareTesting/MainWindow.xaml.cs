@@ -37,7 +37,7 @@ namespace SoftwareTesting
 
         public abstract bool ResultDecide();
        
-        public int Index
+        public int AtIndex
         {
             set
             {
