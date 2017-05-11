@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Infragistics;
 using SoftwareTesting.Pages.Experiments.Sales;
 
 namespace SoftwareTesting.Pages.Experiments.Phone
@@ -126,6 +127,7 @@ namespace SoftwareTesting.Pages.Experiments.Phone
             private bool discountCorrect;
 
             private string middleValue;
+
 
             public DataModel(String id, int st,
                 int bn, float expectdiscount, 
@@ -270,7 +272,18 @@ namespace SoftwareTesting.Pages.Experiments.Phone
 
         }
 
-
+        private void SampleTest(object sender, RoutedEventArgs e)
+        {
+            int bn,st;
+            bool input = true;
+            input = int.TryParse(textBreak.Text, out bn);
+            input = int.TryParse(textTime.Text, out st);
+            var temp = new DataModel("002", st,bn, 0L,0L, "" );
+            if (input && temp.inputCorrect)
+                MessageBox.Show("结果: "+temp.OutputPrice);
+            else
+                MessageBox.Show("非法输入");
+        }
     }
 
 }

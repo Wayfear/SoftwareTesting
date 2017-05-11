@@ -270,6 +270,9 @@ namespace SoftwareTesting.Pages.Experiments.Sales
 
         }
 
- 
+        private void SampleTest(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

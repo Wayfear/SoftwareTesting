@@ -15,10 +15,21 @@
 
         <ScrollViewer Margin="{StaticResource SplitLeft}">
             <StackPanel>
-                <TextBlock Text="Select File" Style="{StaticResource Heading2}" />
+                <TextBlock Text="Sample Test" Style="{StaticResource Heading2}" />
                 <TextBlock Text="Select the file that contain test data." />
-                <Button Margin="10" Width="100" Height="30" Content="Select File" Click="ButtonBase_OnClick"/>
+                <WrapPanel Orientation="Horizontal" Width="300" Margin="0,20,0,0">
+                    <TextBlock Text="违约次数: " ></TextBlock>
+                    <TextBox Width="100" Margin="0,30,0,0" Name="textBreak"></TextBox>
+                </WrapPanel>
 
+                <WrapPanel Orientation="Horizontal" Width="300" Margin="0,20,0,0">
+                    <TextBlock Text="通话时间: "></TextBlock>
+
+                    <TextBox Width="100" Margin="0,30,0,0" Name="textTime"></TextBox>
+                </WrapPanel>
+
+                <Button Width="80"  Margin="-70,40,0,0" Content="Test" Click="SampleTest"></Button>
+           
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" />

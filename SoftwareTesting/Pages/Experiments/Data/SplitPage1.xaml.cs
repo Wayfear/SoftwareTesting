@@ -199,7 +199,10 @@ namespace SoftwareTesting.Pages.Experiments.Data
 
         }
 
+        private void SampleTest(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 
 }

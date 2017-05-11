@@ -8,25 +8,35 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+         
+            <ColumnDefinition Width="131*"/>
             <ColumnDefinition Width="6"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="131*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Margin="{StaticResource SplitLeft}">
+        <ScrollViewer Margin="{StaticResource SplitLeft}" Grid.ColumnSpan="2">
+            
+          
             <StackPanel>
-                <TextBlock Text="Select File" Style="{StaticResource Heading2}" />
-                <TextBlock Text="Select the file that contain test data." />
-                <TextBlock Text="违约次数"></TextBlock>
-                <TextBox Text="违约次数" Width="100" Margin="0,20,0,0"></TextBox>
-                <TextBlock Text="违约次数"></TextBlock>
+               
+                <TextBlock Text="Sample Test" Style="{StaticResource Heading2}" />
+               
+                <WrapPanel Orientation="Horizontal" Width="300" Margin="0,20,0,0">
+                    <TextBlock Text="违约次数: " ></TextBlock>
+                    <TextBox Width="100" Margin="0,30,0,0" Name="textBreak"></TextBox>
+                </WrapPanel>
 
-                <TextBox Text="通话时间" Width="100" Margin="0,20,0,0"></TextBox>
-                <Button Width="80"  Margin="0,20,0,0" Content="Confirm"></Button>
+                <WrapPanel Orientation="Horizontal" Width="300" Margin="0,20,0,0">
+                    <TextBlock Text="通话时间: "></TextBlock>
+
+                    <TextBox Width="100" Margin="0,30,0,0" Name="textTime"></TextBox>
+                </WrapPanel>
+              
+                <Button Width="80"  Margin="-70,40,0,0" Content="Test" Click="SampleTest"></Button>
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" />
-        <ScrollViewer Grid.Column="2 " Margin="{StaticResource SplitRight}">
+        <ScrollViewer Grid.Column="2" Margin="{StaticResource SplitRight}">
             <StackPanel>
                 <TextBlock Text="Export File" Style="{StaticResource Heading2}" />
 
