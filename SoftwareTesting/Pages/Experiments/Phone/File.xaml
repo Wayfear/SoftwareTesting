@@ -17,8 +17,12 @@
             <StackPanel>
                 <TextBlock Text="Select File" Style="{StaticResource Heading2}" />
                 <TextBlock Text="Select the file that contain test data." />
-                <Button Margin="10" Width="100" Height="30" Content="Select File" Click="ButtonBase_OnClick"/>
+                <TextBlock Text="违约次数"></TextBlock>
+                <TextBox Text="违约次数" Width="100" Margin="0,20,0,0"></TextBox>
+                <TextBlock Text="违约次数"></TextBlock>
 
+                <TextBox Text="通话时间" Width="100" Margin="0,20,0,0"></TextBox>
+                <Button Width="80"  Margin="0,20,0,0" Content="Confirm"></Button>
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" />
@@ -27,7 +31,9 @@
                 <TextBlock Text="Export File" Style="{StaticResource Heading2}" />
 
                 <TextBlock Text="Export Report File" />
-                <Button Margin="0,10,0,0" Width="100" Height="30" Content="Export File" Click="Export_report" RenderTransformOrigin="0.5,-0.222"/>
+                <Button Margin="0,20,0,0" Width="100" Height="30" Content="Select File" Click="ButtonBase_OnClick"/>
+
+                <Button Margin="0,20,0,0" Width="100" Height="30" Content="Export File" Click="Export_report" RenderTransformOrigin="0.5,-0.222"/>
 
             </StackPanel>
         </ScrollViewer>

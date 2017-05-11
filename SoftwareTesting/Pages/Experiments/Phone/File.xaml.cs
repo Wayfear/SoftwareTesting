@@ -191,7 +191,7 @@ namespace SoftwareTesting.Pages.Experiments.Phone
             public override string Output()
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append(AtIndex).Append(",").Append(ucID).Append(",").
+                sb.Append(ucID).Append(",").
                     Append(spendTimes).Append(",").Append(breakNumber).Append(",").
                     Append(ExpectDiscount).Append(",").Append(ExpectPrice).Append(",").Append(MiddleValue).Append(",");
                 if (inputCorrect)
