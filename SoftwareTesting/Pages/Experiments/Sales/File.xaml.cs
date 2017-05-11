@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using File = SoftwareTesting.Pages.Experiments.Phone.File;
 
 
 namespace SoftwareTesting.Pages.Experiments.Sales
@@ -272,7 +273,19 @@ namespace SoftwareTesting.Pages.Experiments.Sales
 
         private void SampleTest(object sender, RoutedEventArgs e)
         {
+            int pn, hn, dn;
 
+            if (!int.TryParse(peripheralNum.Text, out pn) || !int.TryParse(hostNum.Text, out hn) || !int.TryParse(displayNum.Text, out dn))
+            {
+                MessageBox.Show("非法输入");
+                return;
+            }
+
+            var temp = new DataModel(0, pn, hn, dn, 0f, 0f);
+            if (temp.inputCorrect)
+                MessageBox.Show("结果: " + temp.OutputPrice);
+            else
+                MessageBox.Show("非法输入");
         }
     }
 }

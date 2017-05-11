@@ -201,7 +201,20 @@ namespace SoftwareTesting.Pages.Experiments.Data
 
         private void SampleTest(object sender, RoutedEventArgs e)
         {
-
+            int yearNum, monthNum, dayNum;
+        
+            if (!int.TryParse(year.Text, out yearNum)|| !int.TryParse(month.Text, out monthNum)|| !int.TryParse(day.Text, out dayNum))
+            {
+                MessageBox.Show("非法输入");
+                return;
+            }
+            var sb = new StringBuilder();
+            sb.Append(yearNum).Append("/").Append(monthNum).Append("/").Append(dayNum);
+            var temp = new Test2DataModel(0, sb.ToString(), "2010/1/1");
+            if (temp.inputCorrect)
+                MessageBox.Show("结果: " + temp.OutputDate.ToString("yyyy/MM/dd"));
+            else
+                MessageBox.Show("非法输入");
         }
     }
 

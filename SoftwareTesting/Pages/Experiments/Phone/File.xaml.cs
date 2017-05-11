@@ -275,11 +275,15 @@ namespace SoftwareTesting.Pages.Experiments.Phone
         private void SampleTest(object sender, RoutedEventArgs e)
         {
             int bn,st;
-            bool input = true;
-            input = int.TryParse(textBreak.Text, out bn);
-            input = int.TryParse(textTime.Text, out st);
+
+            if (!int.TryParse(textBreak.Text, out bn) || !int.TryParse(textTime.Text, out st))
+            {
+                MessageBox.Show("非法输入");
+                return;
+            }
+         
             var temp = new DataModel("002", st,bn, 0L,0L, "" );
-            if (input && temp.inputCorrect)
+            if (temp.inputCorrect)
                 MessageBox.Show("结果: "+temp.OutputPrice);
             else
                 MessageBox.Show("非法输入");
